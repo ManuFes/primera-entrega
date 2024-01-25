@@ -1,0 +1,79 @@
+/********************************************************************************************/
+/*                                   ESTILO DE INSERCION.HTML                               */
+body{
+    background-image: url("../img/fondo.webp");
+    font-family: sans-serif;
+}
+input{
+    background-color: transparent;
+    padding: 0.5em;
+    border: solid 1px rgb(155, 142, 106);
+    border-radius: 10px;
+    transition: 400ms;
+    margin-top: 0.5em;
+}
+input:hover{
+    background-color: rgb(243, 180, 80);
+    padding: 0.75em;
+}
+input::placeholder{
+    color: black;
+}
+.genero{
+    display: flex;
+    gap: 4em;
+}
+#aceptaterminos{
+    display: flex;
+    gap: 1em;
+}
+#buttonEnviar{
+    background-color: rgba(230, 230, 75, 0.598);
+}
+/* label{
+    display: flex;
+    margin-bottom: 0.5rem;
+} */
+label + input:required:after{
+    content:"*";
+}
+label span{
+    color: red;
+}
+form{
+    background-color: rgba(235, 171, 74, 0.34);
+    backdrop-filter: blur(10px);
+    width: 60%;
+    min-width: 500px;
+    max-width: 600px;
+    margin: auto;
+    padding: 3em;
+    border-radius: 10px;
+}
+
+textarea, input, select{
+    margin-bottom: 20px;
+}
+input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]){
+    /* se puede inveritr el selector*/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    width:100%;
+}
+
+@media screen and (max-width: 600px) {
+    /* CSS rules for screens smaller than 600px */
+    body {
+        font-size: 14px;
+    }
+
+    form {
+        width: 100%;
+        padding: 10px;
+    }
+
+    input[type="text"], input[type="email"], input[type="date"], textarea {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* Additional styling rules for other elements */
+}
