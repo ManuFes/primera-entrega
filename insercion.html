@@ -1,66 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulario de inserción</title>
-    <link rel="stylesheet" href="./css/insercion.css">
-    <link rel="shortcut icon" href="./img/pizzafavicon.png" type="image/x-icon">
-</head>
-<body>
-    <form action="" method="post"><!--action se usa para enviar datos a un ejecutable del backend
+    <link rel="stylesheet" href="./css/insercion.css" />
+    <link
+      rel="shortcut icon"
+      href="./img/pizzafavicon.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <form action="" method="post">
+      <!--action se usa para enviar datos a un ejecutable del backend
                                     method es el método de enviío, por defecto, post, de forma oculta-->
-        <h2>Inserción de datos</h2>
-        <!--introduccion de nombre-->
-        <label for="">Nombre: <span>*</span></label>
-        <input type="text" id="nombre" name="nombre" placeholder="escribe tu nombre" required><br>
+      <h2>Inserción de datos</h2>
+      <!--introduccion de nombre-->
+      <label for="">Nombre: <span>*</span></label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        placeholder="escribe tu nombre"
+        required
+      /><br />
 
-        <!--introduccion de apellido-->
-        <label for="">Apellidos: <span>*</span></label>
-        <input type="text" id="apellidos" name="apellidos" placeholder="escribe tus apellidos" required><br>
+      <!--introduccion de apellido-->
+      <label for="">Apellidos: <span>*</span></label>
+      <input
+        type="text"
+        id="apellidos"
+        name="apellidos"
+        placeholder="escribe tus apellidos"
+        required
+      /><br />
 
-        <!--introduccion de fecha de ingreso-->
-        <label for="">Fecha Ingreso: <span>*</span></label>
-        <input type="date" id="fechaIn" name="fechaIn" required><br>
+      <!--introduccion de fecha de ingreso-->
+      <label for="">Fecha Ingreso: <span>*</span></label>
+      <input type="date" id="fechaIn" name="fechaIn" required /><br />
 
-        <!--introduccion de correo de contacto-->
-        <label for="">Correo electrónico: <span>*</span></label>
-        <input type="email" id="email" name="email" placeholder="obligatorio" required><br>
+      <!--introduccion de correo de contacto-->
+      <label for="">Correo electrónico: <span>*</span></label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="obligatorio"
+        required
+      /><br />
 
-        <!--radio button se utiliza para elegir una entre varias alternativas-->
-        <div class="genero">
-            <input type="radio" name="sexo" id="male" value="male">
+      <!--radio button se utiliza para elegir una entre varias alternativas-->
+      <div class="genero">
+        <input type="radio" name="sexo" id="male" value="male" />
         <label for="male">Hombre</label>
-        <input type="radio" name="sexo" id="female" value="female">
+        <input type="radio" name="sexo" id="female" value="female" />
         <label for="female">Mujer</label>
-        <input type="radio" name="sexo" id="other" value="other">
+        <input type="radio" name="sexo" id="other" value="other" />
         <label for="other">Prefiero no decirlo</label>
-        </div>
-        
-        <!-- select-->
-        <label for="">Elige provincia: </label><br>
-        <select name="provincia" id="provincia">
-            <option value="">--elige una opcion</option><!--Valor erroneo-->
-            <option value="29">Malaga</option>
-            <option value="13">Granada</option>
-            <option value="4">Almeria</option>
-            <option value="41">Sevilla</option>
-            <option value="11">Cádiz</option>   
-            <option value="14">Córdoba</option>
-            <option value="21">Huelva</option>
-            <option value="23">Jaén</option>
-        </select>
-        <br>
+      </div>
 
-        <!--Casilla de verificacion-->
-        <div id="aceptaterminos">
-            <input type="checkbox" name="terminos" id="terminos" required>
-        <label for="">Acepto los <a href=""> terminos...</a></label><br>
-        </div>
-        
+      <!-- select-->
+      <label for="">Elige provincia: </label><br />
+      <select name="provincia" id="provincia">
+        <option value="">--elige una opcion</option>
+        <!--Valor erroneo-->
+        <option value="29">Malaga</option>
+        <option value="13">Granada</option>
+        <option value="4">Almeria</option>
+        <option value="41">Sevilla</option>
+        <option value="11">Cádiz</option>
+        <option value="14">Córdoba</option>
+        <option value="21">Huelva</option>
+        <option value="23">Jaén</option>
+      </select>
+      <br />
 
-        <!--boton enviar, obligatorio-->
-        <input type="submit" value="Enviar" id="buttonEnviar">
+      <!--Casilla de verificacion-->
+      <div id="aceptaterminos">
+        <input type="checkbox" name="terminos" id="terminos" required />
+        <label for="">Acepto los <a href=""> terminos...</a></label
+        ><br />
+      </div>
+
+      <!--boton enviar, obligatorio-->
+      <input type="submit" value="Enviar" id="buttonEnviar" />
     </form>
-</body>
+    <script>
+      document.getElementById("formData").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevenir el envío del formulario
+
+    var campoTexto1 = document.getElementById("campoTexto1").value;
+    var campoTexto2 = document.getElementById("campoTexto2").value;
+    var campoTexto3 = document.getElementById("campoTexto3").value; // Asumiendo que este es el campo que necesita un formato específico
+    var campoNumerico = parseInt(document.getElementById("campoNumerico").value, 10);
+    var email = document.getElementById("email").value;
+    var select = document.getElementById("selectProvincia").value; // Asegúrate de ajustar este ID al de tu elemento select
+    var radioButtons = document.querySelectorAll('input[name="opciones"]:checked').length;
+    var checkbox = document.getElementById("checkbox").checked;
+    var errores = [];
+
+    if (campoTexto1.trim() === "") errores.push("El primer campo de texto no debe estar vacío.");
+    if (campoTexto2.length < 5) errores.push("El segundo campo de texto debe tener al menos 5 caracteres.");
+    if (!campoTexto3.match(/^\d{8}[A-Z]$/)) errores.push("El tercer campo de texto debe tener un formato específico (p.ej., DNI).");
+    if (isNaN(campoNumerico) || campoNumerico < 1 || campoNumerico > 100) errores.push("El campo numérico debe estar entre 1 y 100.");
+    if (!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) errores.push("El correo electrónico no es válido.");
+    if (select === "") errores.push("Debe seleccionar una provincia.");
+    if (radioButtons === 0) errores.push("Debe seleccionar una opción de los botones de radio.");
+    if (!checkbox) errores.push("Debe marcar la casilla de verificación.");
+
+    if (errores.length > 0) {
+        alert("Errores encontrados:\n" + errores.join("\n"));
+    } else {
+        this.submit(); // Enviar el formulario si pasa las validaciones
+    }
+});
+
+    </script>
+  </body>
 </html>

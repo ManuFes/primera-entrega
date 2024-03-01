@@ -62,5 +62,36 @@
         <!--boton enviar, obligatorio-->
         <input type="submit" value="Enviar" id="buttonEnviar">
     </form>
+    <script>
+        document.getElementById("formData").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevenir el envío del formulario
+
+    var campoTexto1 = document.getElementById("campoTexto1").value;
+    var campoTexto2 = document.getElementById("campoTexto2").value;
+    var campoTexto3 = document.getElementById("campoTexto3").value; // Asumiendo que este es el campo que necesita un formato específico
+    var campoNumerico = parseInt(document.getElementById("campoNumerico").value, 10);
+    var email = document.getElementById("email").value;
+    var select = document.getElementById("selectProvincia").value; // Asegúrate de ajustar este ID al de tu elemento select
+    var radioButtons = document.querySelectorAll('input[name="opciones"]:checked').length;
+    var checkbox = document.getElementById("checkbox").checked;
+    var errores = [];
+
+    if (campoTexto1.trim() === "") errores.push("El primer campo de texto no debe estar vacío.");
+    if (campoTexto2.length < 5) errores.push("El segundo campo de texto debe tener al menos 5 caracteres.");
+    if (!campoTexto3.match(/^\d{8}[A-Z]$/)) errores.push("El tercer campo de texto debe tener un formato específico (p.ej., DNI).");
+    if (isNaN(campoNumerico) || campoNumerico < 1 || campoNumerico > 100) errores.push("El campo numérico debe estar entre 1 y 100.");
+    if (!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) errores.push("El correo electrónico no es válido.");
+    if (select === "") errores.push("Debe seleccionar una provincia.");
+    if (radioButtons === 0) errores.push("Debe seleccionar una opción de los botones de radio.");
+    if (!checkbox) errores.push("Debe marcar la casilla de verificación.");
+
+    if (errores.length > 0) {
+        alert("Errores encontrados:\n" + errores.join("\n"));
+    } else {
+        this.submit(); // Enviar el formulario si pasa las validaciones
+    }
+});
+
+    </script>
 </body>
 </html>

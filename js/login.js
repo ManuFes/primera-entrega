@@ -62,3 +62,48 @@ anchoPage();
             caja_trasera_login.style.opacity = "1";
         }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector(".formulario__login button").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevenir el envío del formulario por defecto
+
+        var correo = document.querySelector(".formulario__login input[type='text']").value;
+        var contraseña = document.querySelector(".formulario__login input[type='password']").value;
+        var errores = [];
+
+        if (!correo) errores.push("El campo de correo electrónico no debe estar vacío.");
+        if (!contraseña) errores.push("El campo de contraseña no debe estar vacío.");
+        // Aquí puedes añadir más validaciones específicas como formato de correo, longitud de contraseña, etc.
+
+        if (errores.length > 0) {
+            alert("Errores:\n" + errores.join("\n"));
+        } else {
+            // Aquí colocar la lógica o llamada para el inicio de sesión
+            console.log("Formulario de login validado con éxito.");
+        }
+    });
+
+    document.querySelector(".formulario__registro button").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevenir el envío del formulario por defecto
+
+        var nombreCompleto = document.querySelector(".formulario__registro input[type='text']:nth-child(1)").value;
+        var correo = document.querySelector(".formulario__registro input[type='text']:nth-child(2)").value;
+        var usuario = document.querySelector(".formulario__registro input[type='text']:nth-child(3)").value;
+        var contraseña = document.querySelector(".formulario__registro input[type='password']").value;
+        var errores = [];
+
+        // Validaciones para registro
+        if (!nombreCompleto) errores.push("El campo de nombre completo no debe estar vacío.");
+        if (!correo) errores.push("El campo de correo electrónico no debe estar vacío.");
+        if (!usuario) errores.push("El campo de usuario no debe estar vacío.");
+        if (!contraseña) errores.push("El campo de contraseña no debe estar vacío.");
+        // Aquí puedes añadir más validaciones específicas como formato de correo, longitud de contraseña, etc.
+
+        if (errores.length > 0) {
+            alert("Errores:\n" + errores.join("\n"));
+        } else {
+            // Aquí colocar la lógica o llamada para el registro
+            console.log("Formulario de registro validado con éxito.");
+        }
+    });
+});
