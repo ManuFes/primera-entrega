@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de formulario</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/mystyle.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+        <div class="col-0 col-lg-2 col-xxl-3">
+
+        </div>
+        <div class="col-12 col-lg-8 col-xxl-6">
+            <form action="" method="post" onsubmit="return validacion()"
+                  class="border border-secondary p-5 rounded-3 mt-5">
+                <h1 class="text-center text-danger ">Introducción de datos</h1>
+        
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre:<span class="text-danger"> *</span> </label>
+                  <input onchange="resetear('nombre')"  type="text" class="form-control" id="nombre" name="nombre" placeholder="obligatorio" aria-describedby="nombreHelp">
+                  <div id="nombreHelp" class="form-text text-danger">Nombre obligatorio</div>
+                </div>
+        
+                <div class="mb-3">
+                  <label for="apellidos" class="form-label">Apellidos: <span class="text-danger"> *</span></label>
+                  <input onchange="resetear('apellidos')"type="text" class="form-control" id="apellidos" name="apellidos" aria-describedby="apellidosHelp">
+                  <div id="apellidosHelp" class="form-text text-danger">Apellidos obligatorio</div>
+                </div>
+        
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email: <span class="text-danger"> *</span></label>
+                  <input onclick="resetear('email')" type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text text-danger">Formato de correo erróneo</div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="pass" class="form-label">Contraseña:  <span class="text-danger"> *</span></label>
+                  <input onchange="resetear('email')" type="password" class="form-control" id="pass" name="pass" aria-describedby="passHelp">
+                  <div id="passHelp" class="form-text text-danger">Debe incluir mayúsculas, minúsculas, dígitos y caracteres especiales, y tener entre 8 y 15 caracteres</div>
+                </div>
+        
+                <div class="mb-3">
+                  <label for="provincia" class="form-label">Provincia: </label>
+                  <select onclick="resetear('pass')" class="form-select" aria-label="Default select example"
+                   id="provincia" name="provincia">
+                    <option value="0">-- elige provincia</option>
+                    <option value="29">Málaga</option>
+                    <option value="18">Granada</option>
+                    <option value="4">Almería</option>
+                  </select>
+                  <div id="provinciaHelp" class="form-text text-danger">Seleccione provincia</div>
+                </div>
+        
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="sexo" id="masculino" value="masculino">
+                  <label class="form-check-label" for="masculino">
+                    Masculino
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="sexo" id="femenino" value="femenino">
+                  <label class="form-check-label" for="femenino">
+                    Femenino
+                  </label>
+                </div>
+        
+                <div class="form-check">
+                  <input class="form-check-input" checked type="radio" name="sexo" id="otro" value="otro">
+                  <label class="form-check-label" for="otro">
+                    No quiero indicarlo
+                  </label>
+                </div>
+                <div id="nombreHelp" class="form-text text-danger">Elija sexo</div>
+
+                <div class="my-5 form-check">
+                  <input type="checkbox" class="form-check-input" id="terminos" onchange="resetear('terminos')">
+                  <label class="form-check-label" for="terminos">
+                    <a id="trigger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                     class="text-primary fw-bold text-decoration-none">
+                      Acepto los términos y condiciones</a></label>
+                      <div id="terminosHelp" class="form-text text-danger">Debe aceptar</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+
+               <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex iusto distinctio totam porro cumque. Ratione culpa mollitia architecto quae similique reiciendis, ducimus deserunt repudiandae, cum, maxime repellat inventore aliquid sint!
+          Inventore enim qui nemo sint eaque itaque illo corrupti quas eius cum facilis totam perspiciatis culpa obcaecati voluptate dolores dignissimos ut voluptatum nisi ipsum possimus, incidunt minima. Eveniet, aperiam excepturi.
+          Quo et dolor modi voluptates quos dignissimos facere nihil, eos eum sint dolores maxime iure tempore rem, cumque vel alias! Dolores asperiores non eos unde, sequi provident iste facere ex?
+          Pariatur totam optio praesentium vitae quasi fugit? Natus sapiente nulla, sit ea omnis, quaerat sunt tempora in, ducimus placeat repellat molestiae excepturi nesciunt aperiam. Blanditiis molestiae asperiores cum quae expedita.
+          Deserunt harum, dicta numquam sed reprehenderit porro eius eum officiis nam. Ipsum quaerat assumenda fugiat eligendi iste ducimus itaque illo? Iusto atque obcaecati et earum. Quo ad qui perferendis blanditiis?
+          Dolorum odio incidunt atque, error est harum consequuntur. Debitis totam quisquam necessitatibus quo nobis nulla, doloribus sit dolore pariatur maxime vitae vero, neque voluptate repellat qui obcaecati, omnis eaque sunt?
+          Quae impedit eos quisquam ratione eum, et, ab temporibus commodi fugiat consequatur architecto iure adipisci earum deserunt hic fugit provident tempora est quibusdam quidem? Placeat dolores itaque odit! Fuga, odit.
+          Velit, mollitia tempora quis, exercitationem, repellendus sapiente cum nesciunt eveniet dolore soluta hic iure corporis ipsa. Necessitatibus saepe cum ipsum expedita, est rerum sapiente vitae corrupti hic velit officia? In.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Understood</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+        <div class="col-0 col-lg-2 col-xxl-3">
+
+        </div>
+    </div>
+  </div>
+    
+     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/mijs.js"></script>
+</body>
+</html>

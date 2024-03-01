@@ -51,6 +51,10 @@ form{
     border-radius: 10px;
 }
 
+.oculto{
+    visibility: hidden;
+}
+
 textarea, input, select{
     margin-bottom: 20px;
 }

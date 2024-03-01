@@ -1,0 +1,52 @@
+function validacionInsercion() {
+    debugger;
+    let correcto = true;
+    let nombre = document.getElementById("nombre").value; // getter
+    let apellido = document.getElementById("apellido").value; // getter
+    let correo = document.getElementById("correo").value; // getter
+    let usuario = document.getElementById("usuario").value; // getter
+    let contrasenia = document.getElementById("contrasenia").value; // getter
+    
+    if (
+      usuario == "" ||
+      usuario.length <8 || usuario.length>12
+    ) {
+      document.getElementById("usuarioHelp").style.visibility = "visible";
+      document.getElementById("usuario").style.borderColor = "red";
+  
+      correcto = false;
+    }
+    if (
+      nombre == ""
+    ) {
+      document.getElementById("nombreHelp").style.visibility = "visible";
+      document.getElementById("nombre").style.borderColor = "black";
+  
+      correcto = false;
+    }
+    if (
+      apellido == "" ||
+      apellido.length <8 || apellido.length>15
+    ) {
+      document.getElementById("apellidoHelp").style.visibility = "visible";
+      document.getElementById("apellido").style.borderColor = "black";
+  
+      correcto = false;
+    }
+    if (
+      correo == "" ||
+      correo.length <8 || correo.length>15
+    ) {
+      document.getElementById("correoHelp").style.visibility = "visible";
+      document.getElementById("correo").style.borderColor = "black";
+  
+      correcto = false;
+    }
+    
+    return correcto;
+}
+
+function resetear(id) {
+    document.getElementById(id + "Help").style.visibility = "hidden";
+    document.getElementById(id).style.borderColor = "lightgray";
+  }
